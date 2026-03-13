@@ -1,5 +1,7 @@
 def detect_automation(html):
 
+    html = html.lower()
+
     tools = []
 
     if "sleekflow" in html:
@@ -10,5 +12,11 @@ def detect_automation(html):
 
     if "mailchimp" in html:
         tools.append("Mailchimp")
+
+    if "hubspot" in html:
+        tools.append("HubSpot")
+
+    if "rdstation" in html:
+        tools.append("RD Station")
 
     return tools
