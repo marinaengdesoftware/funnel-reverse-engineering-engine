@@ -1,5 +1,6 @@
 import json
 import os
+from graphviz import Digraph
 
 
 def generate_report(data):
@@ -19,6 +20,7 @@ def generate_report(data):
 
     save_json(data)
     save_markdown(data)
+    generate_diagram(data)
 
 
 def save_json(data):
@@ -38,9 +40,42 @@ def save_markdown(data):
     md = "# Funnel Architecture Report\n\n"
 
     for key, value in data.items():
+
+        if not value:
+            value = "Not detected"
+
         md += f"**{key}:** {value}\n\n"
 
     with open("outputs/funnel_report.md", "w", encoding="utf-8") as f:
         f.write(md)
 
     print("[LOG] Relatório Markdown salvo em outputs/funnel_report.md")
+
+
+def generate_diagram(data):
+
+    os.makedirs("outputs", exist_ok=True)
+
+    diagram = Digraph(comment="Funnel Architecture")
+
+    diagram.attr(rankdir="TB")
+
+    cms = data.get("CMS", "Landing Page")
+    video = data.get("Video Platform", "Video")
+    automation = data.get("Automation Tools", "Automation")
+    checkout = data.get("Checkout Platforms", "Checkout")
+
+    diagram.node("A", f"Landing Page\n{cms}")
+    diagram.node("B", f"VSL\n{video}")
+    diagram.node("C", f"Automation\n{automation}")
+    diagram.node("D", f"Checkout\n{checkout}")
+
+    diagram.edge("A", "B")
+    diagram.edge("B", "C")
+    diagram.edge("C", "D")
+
+    output_path = "outputs/funnel_architecture"
+
+    diagram.render(output_path, format="png", cleanup=True)
+
+    print("[LOG] Diagrama salvo em outputs/funnel_architecture.png")
