@@ -70,6 +70,14 @@ Checkout: Hotmart
 
 ## Objetivo do projeto
 
-Este projeto faz parte de uma pesquisa sobre engenharia reversa de sistemas de marketing digital e análise estrutural de funis de vendas.
+Este sistema analisa automaticamente a arquitetura tecnológica de páginas de vendas.
 
-O objetivo é compreender quais tecnologias e estruturas são utilizadas em funis digitais de alta conversão.
+A partir de uma URL o sistema identifica:
+
+- CMS utilizado
+- plataformas de vídeo
+- ferramentas de automação
+- pixels de rastreamento
+- plataformas de checkout
+
+O resultado é salvo automaticamente em relatórios JSON e Markdown.
