@@ -1,6 +1,8 @@
-import json
 import os
+import json
 from graphviz import Digraph
+
+os.environ["PATH"] += os.pathsep + r"C:\Program Files\Graphviz\bin"
 
 
 def generate_report(data):
