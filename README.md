@@ -8,24 +8,10 @@ O objetivo é identificar ferramentas utilizadas em funis de marketing digital, 
 - plataformas de vídeo
 - pixels de rastreamento
 - ferramentas de automação
-- checkouts
+- plataformas de checkout
 
 A análise é realizada a partir de uma URL e gera um relatório técnico com os componentes detectados.
 
-## Exemplo de uso
-python scanner/scanner.py
+---
 
-Entrada:https://site.com
-
-Saída:
-
-
-CMS: WordPress
-Video Platform: Vimeo
-Facebook Pixel: Detected
-Google Analytics: Detected
-
-
-## Objetivo
-
-Este projeto faz parte de uma pesquisa sobre engenharia reversa de sistemas de marketing digital e análise estrutural de funis de vendas.
+## Arquitetura do sistema
